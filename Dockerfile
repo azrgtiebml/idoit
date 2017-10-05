@@ -1,8 +1,8 @@
-FROM ubuntu:latest
+FROM ubuntu:14.04
 
 COPY policy-rc.d /usr/sbin/policy-rc.d
 
-RUN apt-get update  
+RUN apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y -q  \
 	apache2 \
 	libapache2-mod-php5 \
@@ -21,7 +21,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y -q  \
 
 RUN php5enmod mcrypt
 
-RUN mkdir /var/www/i-doit 
+RUN mkdir /var/www/i-doit
 
 # download i-doit 1.8 and upack it
 RUN wget -O i-doit.zip http://sourceforge.net/projects/i-doit/files/i-doit/1.8/idoit-open-1.8.zip/download
